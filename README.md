@@ -1,7 +1,7 @@
 # AI Gym Instructor
 
 ## Overview
-The **Smart Fitness Monitoring System ** is a web-based application designed to revolutionize home workouts by providing real-time exercise form correction and progress tracking using artificial intelligence. Developed as a final project during an internship at **Abacus Consulting, Lahore**, this tool addresses the common issue of improper exercise form, reducing injury risks for fitness enthusiasts. It supports three exercises—**Squat**, **Bicep Curl**, and **Overhead Press**—offering rep counting, actionable feedback, and a progress dashboard.
+The **Smart Fitness Monitoring System ** is a web-based application designed to revolutionize home workouts by providing real-time exercise form correction and progress tracking using artificial intelligence. It supports three exercises—**Squat**, **Bicep Curl**, and **Overhead Press**—offering rep counting, actionable feedback, and a progress dashboard.
 
 ## Features
 - **Real-Time Form Analysis**: Uses MediaPipe for body landmark detection and OpenCV for video processing.
