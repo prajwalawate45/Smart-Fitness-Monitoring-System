@@ -1,79 +1,66 @@
-🏋️ Smart Fitness Monitoring System
-📌 Overview
+# 🏋️ Smart Fitness Monitoring System
 
-The Smart Fitness Monitoring System is a web-based application designed to enhance home workouts using computer vision and artificial intelligence. It provides real-time exercise form correction, rep counting, and progress tracking to help users exercise safely and effectively.
+## 📌 Introduction
+The ** Smart Fitness Monitoring System** is a web-based fitness application that leverages **computer vision and artificial intelligence** to help users perform exercises correctly at home. The system provides **real-time posture analysis**, **automatic repetition counting**, and **performance feedback**, making workouts safer and more effective without the need for a personal trainer.
 
-The system currently supports three exercises:
+The application currently supports the following exercises:
+- Squat
+- Bicep Curl
+- Overhead Press
 
-Squat
+---
 
-Bicep Curl
+## 🎯 Objectives
+- To assist users in maintaining correct exercise posture
+- To automatically count exercise repetitions
+- To provide instant feedback for form correction
+- To track workout progress over time
 
-Overhead Press
+---
 
-Users receive instant feedback, performance metrics, and visual progress reports through an interactive web interface.
+## ✨ Key Features
 
-✨ Features
-🔍 Real-Time Form Analysis
+### 🔍 Real-Time Pose Detection
+- Uses **MediaPipe** to detect body landmarks and joint positions.
+- Tracks body movement accurately in real time.
 
-Uses MediaPipe for human pose estimation.
+### 🔢 Automatic Rep Counting
+- Counts repetitions automatically for supported exercises.
+- Differentiates between correct and incorrect repetitions based on joint angles and movement rules.
 
-Detects body landmarks and joint angles in real time.
+### 💬 Feedback System
+- Provides rule-based feedback for posture correction.
+- Optional AI-powered feedback using **Google Gemini API** (if API key is configured).
 
-🔢 Intelligent Rep Counting
+### 📊 Progress Tracking
+- Stores workout data in a **SQLite database**.
+- Displays progress using charts and performance metrics.
 
-Automatically counts repetitions.
+### 🖥️ Interactive User Interface
+- Built using **Streamlit** for simplicity and responsiveness.
+- Supports:
+  - Live webcam input
+  - Uploaded video files (MP4 format)
 
-Differentiates between correct and incorrect reps.
+### 📘 Exercise Tutorials
+- Provides basic tutorials and guidance for correct exercise techniques.
 
-Applies exercise-specific rules (e.g., squat knee angle ≤ 90°).
+---
 
-💬 Feedback System
+## 🧰 Technology Stack
 
-Rule-based feedback for posture correction.
+- **Python 3.8+**
+- **Streamlit** – Web application framework
+- **MediaPipe** – Human pose estimation
+- **OpenCV** – Video processing
+- **SQLite** – Lightweight database
+- **NumPy** – Numerical computations
+- **Matplotlib** – Data visualization
+- **Google Gemini API (Optional)** – AI-based feedback
 
-Optional AI-enhanced feedback using the Google Gemini API (if enabled).
+---
 
-📊 Progress Tracking
-
-Stores workout data in a SQLite database.
-
-Displays progress using charts and performance metrics.
-
-🖥️ User-Friendly Interface
-
-Built with Streamlit.
-
-Supports:
-
-Live webcam input
-
-Uploaded video files (MP4)
-
-📘 Exercise Tutorials
-
-Static guides explaining correct exercise techniques.
-
-🧰 Tech Stack
-
-Python 3.8+
-
-Streamlit – Web UI framework
-
-MediaPipe – Pose detection and landmarks
-
-OpenCV – Video processing
-
-SQLite – Local database
-
-NumPy & Matplotlib – Data processing and visualization
-
-Google Gemini API (Optional) – Advanced AI feedback
-
-▶️ How to Run the Project
-1️⃣ Project Setup
-
-Create the following folder structure:
+## 📁 Project Structure
 
 AI-Gym-Instructor/
 │── main.py
@@ -81,88 +68,103 @@ AI-Gym-Instructor/
 │── rep_counter.py
 │── utils.py
 │── requirements.txt
-│── workout_progress.db   (auto-generated)
+│── workout_progress.db (generated automatically)
 │── pages/
-│   ├── progress.py
-│   └── tutorials.py
+│ ├── progress.py
+│ └── tutorials.py
 
 
-📌 The pages folder is required for Streamlit navigation.
+---
 
-2️⃣ Install Dependencies
+## ▶️ Installation & Setup
 
-Open your terminal in the project directory and run:
+### 1️⃣ Clone or Download the Project
+Download the project files or clone the repository.
 
+### 2️⃣ Create Virtual Environment (Optional but Recommended)
+```bash
+python -m venv .venv
+Activate the environment:
+
+Windows
+
+.venv\Scripts\activate
+Linux / macOS
+
+source .venv/bin/activate
+3️⃣ Install Dependencies
 pip install -r requirements.txt
-
-3️⃣ Run the Application
-
-Start the Streamlit app using:
-
+4️⃣ Run the Application
 streamlit run main.py
+The application will open automatically in your browser.
 
-🧭 Usage Guide
+🧭 How to Use
+Launch the application.
 
 Select an exercise from the dropdown menu.
 
-Choose one of the input methods:
+Choose input mode:
 
-Webcam (real-time analysis)
+Webcam for live analysis
 
-Upload Video (MP4 file)
+Upload Video for recorded workout analysis
 
-(Optional) Enable Gemini AI Feedback if the API key is configured.
+(Optional) Enable Gemini AI Feedback if API key is configured.
 
-View:
+Perform the exercise while monitoring:
 
-Live feedback and rep count
+Rep count
 
-Progress charts
+Form feedback
 
-Exercise tutorials
+Progress data
 
-Stop the session or review annotated video output.
+Stop the session or navigate to progress and tutorial sections.
 
-🧩 Project Modules
+🧩 Module Description
+main.py
+Entry point of the application. Manages UI, exercise selection, and session control.
 
-main.py – Application entry point and UI controller
+pose_detector.py
+Handles pose detection and landmark extraction using MediaPipe.
 
-pose_detector.py – MediaPipe pose detection logic
+rep_counter.py
+Contains logic for repetition counting and form validation.
 
-rep_counter.py – Rep counting and form validation
+utils.py
+Utility functions such as angle calculation and drawing helpers.
 
-utils.py – Utility functions (angle calculation, drawing helpers)
+pages/progress.py
+Displays workout statistics and visual progress charts.
 
-progress.py – Displays workout statistics and charts
+pages/tutorials.py
+Provides exercise tutorials and guidance.
 
-tutorials.py – Exercise guidance and instructions
+requirements.txt
+Lists all Python dependencies.
 
-requirements.txt – Project dependencies
+workout_progress.db
+SQLite database used for storing workout history (created automatically).
 
-workout_progress.db – SQLite database (generated on first run)
+🛠️ Development Phases
+Pose detection integration using MediaPipe
 
-.env (optional) – Stores Gemini API key
+Implementation of rep counting and form validation logic
 
-🛠️ Development Process
+Streamlit UI development
 
-Phase 1: Integrated MediaPipe pose detection
+Optional AI feedback integration
 
-Phase 2: Implemented rep counting and form logic
-
-Phase 3: Built Streamlit UI with webcam and video support
-
-Phase 4: Added optional Gemini AI feedback with fallbacks
-
-Phase 5: Implemented progress tracking and final testing
+Progress tracking and testing
 
 🚀 Future Enhancements
+Support for additional exercises (Push-ups, Deadlifts, Lunges)
 
-Add more exercises (Push-Up, Deadlift, Lunges)
+Mobile application support
 
-Mobile application support (Kivy / Flutter)
+Cloud-based data storage and synchronization
 
-Cloud-based data sync (Firebase)
-
-Voice feedback system
+Voice-based feedback system
 
 Multi-language support
+
