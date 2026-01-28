@@ -58,7 +58,7 @@ The application currently supports the following exercises:
 - **Matplotlib** – Data visualization
 - **Google Gemini API (Optional)** – AI-based feedback
 
----
+~~~
 
 ## 📁 Project Structure
 
@@ -72,9 +72,8 @@ AI-Gym-Instructor/
 │── pages/
 │ ├── progress.py
 │ └── tutorials.py
+~~~
 
-
----
 
 ## ▶️ Installation & Setup
 
